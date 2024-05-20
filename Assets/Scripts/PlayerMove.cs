@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMove : MonoBehaviour
 {
     private Vector2 inputVec;
-    private float speed = 10.0f;
-    private float jumpPower = 10.0f;
+    private float speed = 8.0f;
+    private float jumpPower = 11.5f;
 
     private bool isGrounded = false;
 
