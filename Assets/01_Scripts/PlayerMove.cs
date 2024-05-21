@@ -50,7 +50,7 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
                 rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
                 isGrounded = false;
-                animator.SetBool("Jumping", true);
+                animator.SetTrigger("Jump");
             }
         }
         else {
@@ -63,6 +63,5 @@ public class PlayerMove : MonoBehaviour
         if (!collision.gameObject.CompareTag("Ground"))
             return;
         isGrounded = true;
-        animator.SetBool("Jumping", false);
     }
 }
