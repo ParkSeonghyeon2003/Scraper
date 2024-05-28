@@ -6,7 +6,7 @@ public class Chest : MonoBehaviour
 {
     private Animator animator;
 
-    private void Awake()
+    void Awake()
     {
         animator = GetComponent<Animator>();
     }
@@ -16,6 +16,7 @@ public class Chest : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player"))
             return;
+
         animator.SetBool("Open", true);
         StartCoroutine(ChangeLightColor());
         Destroy(gameObject, 5.0f);

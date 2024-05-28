@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // ½Ì±ÛÅæ
-    private static GameManager instance = null;
+    // Singleton
+    public static GameManager Instance { get; set; }
+
 
     public string userName;
 
@@ -12,29 +13,24 @@ public class GameManager : MonoBehaviour
 
     private int wallet;
 
-    // ½Ì±ÛÅæ
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instance == null) {
-                instance = null;
-            }
-            return instance;
-        }
-    }
 
     void Awake()
     {
         // ½Ì±ÛÅæ
-        if (instance == null) {
-            instance = this;
+        if (Instance == null) {
+            Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else {
             Destroy(this.gameObject);
         }
+
+        InitStatus();
         
+    }
+
+    private void InitStatus()
+    {
         // Å×½ºÆ® µ¥ÀÌÅÍ
         userName = "¹Ú¼ºÇö";
         maxHealth = 100.0f;
