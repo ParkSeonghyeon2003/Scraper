@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
 
     public string userName;
 
-    private float health;
-    private float maxHealth;
+    public float health;
+    public float maxHealth;
 
-    private int wallet;
+    public uint money;
 
 
     void Awake()
@@ -35,6 +35,6 @@ public class GameManager : MonoBehaviour
         userName = "¹Ú¼ºÇö";
         maxHealth = 100.0f;
         health = maxHealth;
-        wallet = 0;
+        money = 0;
     }
 }

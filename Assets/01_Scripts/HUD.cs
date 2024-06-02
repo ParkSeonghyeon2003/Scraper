@@ -4,6 +4,9 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
     public Text userName;
+    public Slider hpSlider;
+    public Text hpPercentText;
+    public Text moneyText;
 
     public static HUD Instance { get; set; }
 
@@ -21,5 +24,24 @@ public class HUD : MonoBehaviour
         }
 
         userName.text = GameManager.Instance.userName;
+    }
+
+    private void LateUpdate()
+    {
+        HpBarUpdate();
+        MoneyUpdate();
+    }
+
+    private void HpBarUpdate()
+    {
+        float curHp = GameManager.Instance.health;
+        float maxHp = GameManager.Instance.maxHealth;
+        hpSlider.value = curHp / maxHp;
+        hpPercentText.text = string.Format("{0:F0}%", GameManager.Instance.health);
+    }
+
+    private void MoneyUpdate()
+    {
+        moneyText.text = string.Format("{0:D0}", GameManager.Instance.money);
     }
 }
