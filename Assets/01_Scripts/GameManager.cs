@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     public uint money;
 
-
     void Awake()
     {
         // ΩÃ±€≈Ê
@@ -36,5 +35,15 @@ public class GameManager : MonoBehaviour
         maxHealth = 100.0f;
         health = maxHealth;
         money = 0;
+    }
+
+    public void GamePause()
+    {
+        Time.timeScale = 0.0f;
+    }
+
+    public void GameResume()
+    {
+        Time.timeScale = 1.0f;
     }
 }
