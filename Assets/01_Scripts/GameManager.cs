@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void GameResume()
     {
-        Time.timeScale = 1.0f;
+        Time.timeScale = 1f;
     }
 
     public void GameQuit()

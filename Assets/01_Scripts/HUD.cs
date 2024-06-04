@@ -26,7 +26,7 @@ public class HUD : MonoBehaviour
         userName.text = GameManager.Instance.userName;
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         HpBarUpdate();
         MoneyUpdate();
