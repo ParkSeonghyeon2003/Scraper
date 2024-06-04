@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class PlayerHit : MonoBehaviour
 {
-    private void OnTriggerStay2D (Collider2D collider)
+    private void OnTriggerEnter2D (Collider2D collider)  // Stay -> Enter 
     {
         if (!collider.gameObject.CompareTag("Enemy"))
             return;
-        GameManager.Instance.health -= Time.deltaTime * 10;
+        //GetHit(collider.gameObject.GetComponent<EnemyMove>().weaponDamage);
+    }
 
-        if (GameManager.Instance.health == 0) {
+    public void GetHit(float damage)
+    {
+        GameManager.Instance.health -= damage;
+
+        if (GameManager.Instance.health <= 0)
+        {
             Time.timeScale = 0.0f;
+            // 부활 이벤트, 게임 패배 이벤트 
         }
     }
 }
